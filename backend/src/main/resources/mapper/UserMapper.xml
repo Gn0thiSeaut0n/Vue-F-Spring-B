@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.samsung.backend.dao.UserDAO">
+    <select id="findByCheckId" parameterType="com.samsung.backend.dto.User" resultType="boolean">
+        SELECT
+            CASE WHEN
+               COUNT(*) = 1
+                   THEN
+                        'TRUE'
+                   ELSE
+                        'FALSE'
+            END
+        FROM
+            SAMSUNG.USER
+        WHERE
+            USERID = #{userId} AND
+            USERPW = #{userPw}
+
+    </select>
+</mapper>
